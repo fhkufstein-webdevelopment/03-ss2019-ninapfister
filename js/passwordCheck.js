@@ -29,8 +29,20 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
         that.check();
     };
 
+
     //TODO implement the other events in the exact same way!
 
+    this.passwordField.onfocus = function () {
+        that.check();
+    };
+
+    this.passwordField.onkeup = function (){
+        that.check();
+    };
+
+    this.passwordField.onclick = function (){
+        that.check();
+    };
 
 
 

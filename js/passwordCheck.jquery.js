@@ -27,18 +27,25 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
         //therefore we previously saved "this" in a variable called "that"
         that.check();
     });
+    // bei der Datei ohne jQuery steht onblur
 
     this.passwordField.keydown(function() {
         that.check();
     });
 
+    // bei der Datei ohne jQuery steht onkeup
+
     this.passwordField.focus(function() {
         that.check();
     });
 
+    // bei der Datei ohne jQuery steht onfocus
+
     this.passwordSubmitButton.click(function() {
         that.check();
     });
+
+    // bei der Datei ohne jQuery steht onclick
 
 
 
@@ -61,6 +68,8 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
                 this.passwordSubmitButton.attr('disabled', true);
             }
 
+            // bei der Datei ohne jQuery ist es viel kürzer
+
 
         } else {
             //obviously a field is null (we weren't able to find it)
@@ -77,7 +86,8 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
     this.checkForLength = function() {
         //@todo
         //have a look at javascript string methods and properties
-        return true; //this needs to be replaced!
+        //return true; //this needs to be replaced!
+        return this.passwordField.value.length >= this.minLength;
     };
 
     /*
@@ -87,7 +97,9 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
         //@todo
         //have a look at javascript string methods and properties
         //you could probably "match" it somehow
-        return true; //this needs to be replaced!
+        //return true; //this needs to be replaced!
+        var sonderzeichen = /["!§$_.:,;"]/;
+        return sonderzeichen.test(this.passwordField.value);
     };
     //TODO 2 end
 }
